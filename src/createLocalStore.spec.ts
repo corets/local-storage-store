@@ -9,7 +9,7 @@ describe("createLocalStore", () => {
     expect(store1.get()).toEqual({ foo: "bar" })
     expect(JSON.parse(localStorage.getItem("test")!)).toEqual({ foo: "bar" })
 
-    store1.add({ yolo: "swag" } as any)
+    store1.put({ yolo: "swag" } as any)
 
     expect(store1.get()).toEqual({ foo: "bar", yolo: "swag" })
     expect(JSON.parse(localStorage.getItem("test")!)).toEqual({
