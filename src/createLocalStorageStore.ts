@@ -17,7 +17,9 @@ export const createLocalStorageStore: CreateLocalStorageStore = <
 
   if (!store) {
     store = createStore(readLocalStorage(storageKey, initialValue))
-    store.listen((newValue) => writeLocalStorage(storageKey, newValue))
+    store.listen((newValue) => writeLocalStorage(storageKey, newValue), {
+      immediate: true,
+    })
     cache[storageKey] = store
   }
 
